@@ -1,0 +1,9 @@
+/node_modules/
+/dist/
+/files/
+/.git/
+/app/css/
+/app/libs/
+/**/_backstage
+/**/Thumbs.db
+/**/*.DS_Store

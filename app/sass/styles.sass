@@ -1,0 +1,456 @@
+@import "vars"
+
+/* ------------------------------------- 
+	Fonts
+	------------------------------------- */
+@import "fonts"
+
+/* ------------------------------------- 
+	Libs 
+	------------------------------------- */
+@import "libs"
+
+/* ------------------------------------- 
+	Reset 
+	------------------------------------- */
+@import "reset"
+
+
+/* ------------------------------------- 
+	Common styles 
+	------------------------------------- */
+
+.container
+	width: 100%
+	padding-right: 15px
+	padding-left: 15px
+	margin-right: auto
+	margin-left: auto
+
+@media (min-width: 576px)
+  .container
+    max-width: 540px
+
+@media (min-width: 768px)
+  .container
+    max-width: 720px
+
+@media (min-width: 992px)
+  .container
+    max-width: 960px
+
+@media (min-width: 1200px)
+  .container
+    max-width: 1200px
+
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+.nowrap
+	white-space: nowrap
+
+.text-center
+	text-align: center
+
+
+
+.sub
+	opacity: .5
+	font-size: 0.875em
+
+
+
+
+/* ----- Titles and text ----- */
+.title
+	margin-bottom: 0.2em
+	font-weight: 700
+	line-height: 1.2
+	color: $text-color-black
+	letter-spacing: $let-space
+	&-h1
+		font-size: 3.375rem
+	&-h2
+		font-size: 2.75rem
+	&-sub-h2
+		font-size: 2.125rem
+
+p
+	font: 400 0.875rem/1.9 $sub-font
+	color: $text-color-dark
+
+
+.accent-par
+	font-size: 18px
+	font-weight: 700
+	line-height: 1.56
+	letter-spacing: $let-space
+
+
+
+
+
+.underline
+	position: relative
+	overflow: hidden
+	padding-bottom: 2px
+	&::after
+		content: ''
+		display: block
+		position: absolute
+		left: 0
+		bottom: 0
+		width: 100%
+		height: 1.5px
+		transform: translateX(-110%)
+		transition: transform .2s
+	&:hover
+		&::after
+			transform:  translateX(0)
+			transition: transform .4s
+
+.phone-link
+	display: block
+	font-weight: 700
+	line-height: 1.25
+	letter-spacing: -.025em
+	&:hover
+		text-decoration: none
+	&--black
+		color: $text-color-black
+		&:hover
+			color: $text-color-black
+		&::after
+			background: $text-color-black
+
+	&--white
+		color: $text-color-white
+		&:hover
+			color: $text-color-white
+		&::after
+			background: $text-color-white
+
+
+
+.btn
+	display: block
+	height: 2.875rem
+	padding: 14px 45px 14px 34px
+	border: none
+	background: $accent-color
+	box-shadow: 0 0 128px rgba(1, 1, 1, 0.12)
+	font-family: 'Nissan Brand'
+	font: 700 14px/1 $default-font
+	letter-spacing: -.025em
+	color: $text-color-white
+	position: relative
+	cursor: pointer
+	transition: $trs
+	&::before
+		content: ''
+		display: inline-block
+		width: 8px
+		height: 8px
+		margin: 0
+		border-bottom: 3px solid $text-color-white
+		border-right: 3px solid $text-color-white
+		position: absolute
+		right: 20px
+		top: 50%
+		margin-top: -4px
+		transform: rotate(-45deg)
+		transition: $trs
+	&:hover
+		background: darken($accent-color, 5%)
+		transition: $trs
+		&::before
+			right: 22px
+			transition: $trs
+	&:focus
+		outline: none
+		box-shadow: 0 2px 3px rgba($accent-color, .5)
+	&:active
+		transform: translateY(1px)
+		transition: $trs
+		&::before
+			right: 18px
+
+
+
+
+
+.mb
+	&-0
+		margin-bottom: 0
+	&-2
+		margin-bottom: 2rem
+.pt
+	&-2
+		padding-top: 2rem
+	&-5
+		padding-top: 5rem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------------------- 
+	header 
+	------------------------------------- */
+
+.top-line
+	background-color: #f3f3f3
+	&__row
+		display: flex
+		align-items: center
+		justify-content: space-between
+	&__col
+		display: flex
+		align-items: center
+	&__phones
+		display: flex
+	.phone-link
+		margin: 0 32px 0 0
+	.worktime
+		margin-left: 52px
+
+.address
+	font-size: 0.875rem
+	letter-spacing: $let-space
+
+.worktime
+	font-size: 0.6875rem
+	line-height: 1.2
+
+
+
+
+.bottom-line
+	&__row
+		display: flex
+		align-items: center
+		border-bottom: 1px solid #f8f8f8
+	.car-brand-img
+		flex: 0 0 96px
+		max-width: 96px
+	.logo
+		flex: 0 0 138px
+		max-width: 138px
+
+.car-brand-img
+	max-width: 100px
+	display: flex
+	align-items: center
+	justify-content: center
+	overflow: hidden
+
+/*----- navigation -----*/
+.nav
+	width: 100%
+	padding: 0 40px
+	&__list
+		width: 100%
+		display: flex
+		justify-content: center
+		margin: 0
+		padding: 0
+		list-style: none
+		li
+			margin: 0 10px
+	&__link
+		display: block
+		font-size: 14px
+		font-weight: 700
+		line-height: 1.2
+		letter-spacing: $let-space
+		color: $text-color-black
+		&:hover
+			color: $accent-color
+			text-decoration: none
+			transition: $trs
+
+
+.mob-sign-up
+	display: none
+	width: 50px
+	height: 100px
+	border: none
+	padding: 0
+	background: url('../img/mob-sign-up.png') no-repeat 50% 50%
+	cursor: pointer
+	&:focus
+		outline: none
+	
+
+
+
+
+
+
+/* ------------------------------------- 
+	service 
+	------------------------------------- */
+.service
+
+	&__block
+		&-hint
+			padding: 1.438rem 1.875rem
+			background-color: $text-color-black
+			color: $text-color-white
+
+	&__table
+		border-right: 1px solid #eee
+		border-bottom: 1px solid #eee
+
+	&__row
+		display: flex
+		flex-wrap: wrap
+
+	&__data
+		flex: 0 0 20%
+		max-width: 20%
+		border-left: 1px solid #eee
+		border-top: 1px solid #eee
+		&:not(.service-tech)
+			&:hover
+				border-left-color: transparent
+				border-right-color: transparent
+
+	&-item
+		padding: 10px 10px 20px
+		background-color: $text-color-white
+		position: relative
+		transition: $trs
+		cursor: pointer
+		z-index: 1
+		&::after // чтобы тень псевдоэлемента не налазила на родителя
+			content: ''
+			display: block
+			width: 100%
+			height: 100%
+			position: absolute
+			left: 0
+			top: 0
+			background: #fff
+			z-index: -1
+		&:hover
+			box-shadow: 3px 4px 109px rgba(1, 1, 1, 0.29)
+			transition: $trs
+			z-index: 2
+			.service-item__hidden
+				opacity: 1
+				visibility: visible
+				transition: $trs
+
+		&__img
+			height: 120px
+			display: flex
+			justify-content: center
+			align-items: center
+			overflow: hidden
+		&__name
+			padding-left: 30px
+			font-size: 0.875rem
+			font-weight: 700
+			letter-spacing: $let-space
+
+		&__hidden
+			width: 100%
+			position: absolute
+			border-top: 1px solid #eee
+			top: 100%
+			left: 0
+			background-color: $text-color-white
+			opacity: 0
+			visibility: hidden
+			transform-origin: 50% 0
+			transition: $trs
+			box-shadow: 3px 4px 109px rgba(1, 1, 1, 0.29)
+			z-index: -1
+		&__list
+			margin: 0
+			padding: 10px 0
+			list-style: none
+
+		&__link
+			display: block
+			padding: 10px 10px 10px 35px
+			font-size: 14px
+			font-weight: 700
+			line-height: 1.14
+			letter-spacing: $let-space
+			color: $text-color-black
+			transition: color .1s
+			&:hover
+				text-decoration: none
+				color: $accent-color
+				transition: color .1s
+
+	&-tech
+		.service-item
+			background: #f9f9f9
+			text-align: center
+			&::after
+				display: none
+			&:hover
+				background-color: #f9f9f9
+				box-shadow: none
+			&__name
+				padding-left: 0
+
+
+
+
+
+/* ------------------------------------- 
+	typical
+	------------------------------------- */
+.flex
+	display: flex
+	flex-wrap: wrap
+.column-1-2
+	flex: 0 0 50%
+	max-width: 50%
+
+.typical
+	.flex
+		margin: 0 -20px
+	.column-1-2
+		padding: 0 20px
+	&-img
+		display: flex
+		align-items: center
+		justify-content: center
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------------------- 
+	Media styles 
+	------------------------------------- */
+@import "media"

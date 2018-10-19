@@ -1,0 +1,21 @@
+{
+  "name": "template",
+  "description": "start template",
+  "main": "index.js",
+  "authors": [
+    "Petr Petukhov"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/libs/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
