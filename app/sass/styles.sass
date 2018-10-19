@@ -20,6 +20,7 @@
 	Common styles 
 	------------------------------------- */
 
+/* layout */
 .container
 	width: 100%
 	padding-right: 15px
@@ -43,6 +44,26 @@
   .container
     max-width: 1200px
 
+.flex
+	display: flex
+	flex-wrap: wrap
+
+.column-1-2
+	flex: 0 0 50%
+	max-width: 50%
+
+.column-1-4
+	flex: 0 0 25%
+	max-width: 25%
+
+.column-1-3
+	flex: 0 0 33.333333%
+	max-width: 33.333333%
+
+.column-1-5
+	flex: 0 0 16.666667%
+	max-width: 16.666667%
+
 
 .img-responsive
 	display: block
@@ -54,7 +75,6 @@
 
 .text-center
 	text-align: center
-
 
 
 .sub
@@ -82,7 +102,6 @@ p
 	font: 400 0.875rem/1.9 $sub-font
 	color: $text-color-dark
 
-
 .accent-par
 	font-size: 18px
 	font-weight: 700
@@ -91,8 +110,7 @@ p
 
 
 
-
-
+/* подчеркивание ссылок */
 .underline
 	position: relative
 	overflow: hidden
@@ -112,8 +130,10 @@ p
 			transform:  translateX(0)
 			transition: transform .4s
 
+
+/* телефонные ссылки */
 .phone-link
-	display: block
+	display: inline-block
 	font-weight: 700
 	line-height: 1.25
 	letter-spacing: -.025em
@@ -134,7 +154,7 @@ p
 			background: $text-color-white
 
 
-
+/* кнопки страницы */
 .btn
 	display: block
 	height: 2.875rem
@@ -179,9 +199,64 @@ p
 			right: 18px
 
 
+/* чекбокс ПК */
+.checkbox 
+	display: flex
+	padding-top: 10px
+	font-size: 0
+	vertical-align: top
+	cursor: pointer
+
+	.checkbox-hidden
+		display: none
+
+	.checkbox-wrap
+		display: inline-block
+		vertical-align: middle
+		width: 26px
+		height: 26px
+		flex: 0 0 26px
+		max-width: 26px
+
+	.checkbox-pseudo
+		display: block
+		width: 100%
+		height: 100%
+		box-sizing: border-box
+		background-color: #cacaca
+		position: relative
+
+	.checkbox-check 
+		width: 100%
+		height: 100%
+		position: absolute
+		top: -2px
+		left: 1px
+		stroke: #fff
+		fill: #fff
+		stroke-dasharray: 19px
+		stroke-dashoffset: 19px
+		transition: all .2s ease-out
+
+	.checkbox-text
+		display: inline-block
+		vertical-align: middle
+		font: 10px/1.3 $sub-font
+		color: rgba(#1a1a1a, .4)
+		margin-left: 8px
+
+.checkbox 
+	input[type=checkbox]
+		&:checked
+			+ .checkbox-wrap
+				.checkbox-pseudo
+					.checkbox-check
+						stroke-dashoffset: 36px
 
 
 
+
+/* стили для оступов */
 .mb
 	&-0
 		margin-bottom: 0
@@ -417,22 +492,107 @@ p
 /* ------------------------------------- 
 	typical
 	------------------------------------- */
-.flex
-	display: flex
-	flex-wrap: wrap
-.column-1-2
-	flex: 0 0 50%
-	max-width: 50%
 
 .typical
+
 	.flex
 		margin: 0 -20px
 	.column-1-2
 		padding: 0 20px
+
 	&-img
 		display: flex
 		align-items: center
 		justify-content: center
+	
+	&-list
+		margin: 0
+		padding-left: 0
+		list-style: none
+		font-family: $sub-font
+		font-size: 0.875rem
+		color: $text-color-dark
+		li
+			line-height: 1.8
+			&:not(:last-child)
+				margin-bottom: .95em
+
+ul.typical-list
+	li
+		position: relative
+		padding-left: 3.0625rem
+		&::before
+			content: ''
+			display: inline-block
+			width: 22px
+			height: 2px
+			background-color: $accent-color
+			position: absolute
+			top: 0.625rem
+			left: 0
+
+ol.typical-list
+	counter-reset: i
+	li
+		display: flex
+		&::before
+			content: counter(i)
+			counter-increment: i
+			display: block
+			margin-right: 1.5rem
+			font: 700 1.25rem/1 $default-font
+			color: $accent-color
+
+
+
+
+
+
+/* ----- Формы ----- */
+.typical-form
+	background-color: #f3f3f3
+	padding: 80px 0
+
+.form
+	width: 100%
+	max-width: 387px
+	margin: 0 auto
+
+.typical-input
+	display: block
+	width: 100%
+	margin-bottom: 15px
+	padding: 10px 0
+	background-color: transparent
+	border: none
+	border-bottom: 2px solid $text-color-dark
+	font: 700 18px $default-font
+	color: $text-color-dark
+	transition: $trs
+
+	&:focus
+		outline: none
+		&::placeholder
+			opacity: 0
+			transition: opacity .1s
+
+	&::placeholder
+		font: 700 18px $default-font
+		color: $text-color-dark
+		transition: opacity .1s
+
+input.typical-input
+	height: 56px
+textarea.typical-input
+	height: 160px
+	min-height: 50px
+	padding-top: 13px
+	resize: none
+
+
+.form-btn
+	margin-top: 30px
+	min-width: 232px
 
 
 
@@ -440,6 +600,108 @@ p
 
 
 
+/* ------------------------------------- 
+	footer
+	------------------------------------- */
+.footer
+	margin-top: 6.25rem
+	padding: 70px 0 105px
+	background-color: $text-color-dark
+
+	&__list
+		max-width: 210px
+		margin: 0
+		padding-left: 0
+		list-style: none
+		&-1
+			li
+				&:not(:last-child)
+					margin-bottom: 10px
+		&-2
+			padding-left: 73px
+			li
+				&:not(:last-child)
+					margin-bottom: 27px
+
+	&__link
+		display: inline-block
+		font-size: 0.875rem
+		font-weight: 700
+		line-height: 1.29
+		letter-spacing: $let-space
+		color: $text-color-white
+		&:hover
+			color: $text-color-white
+
+
+	&__sublink
+		display: inline-block
+		font: 0.75rem/1.8 $sub-font
+		color: rgba($text-color-white, .4)
+		&:hover
+			color: rgba($text-color-white, .4)
+
+	&__block
+		height: 100%
+		position: relative
+
+	&__info
+		padding-left: 125px
+
+	&__phone
+		margin-bottom: 10px
+
+	&__logo
+		width: 100%
+		position: absolute
+		bottom: 0
+		display: flex
+		justify-content: flex-end
+
+	&__btn
+		margin-top: 36px
+
+
+.social-links
+	width: 135px
+	margin-top: 58px
+	display: flex
+	align-items: center
+	justify-content: space-between
+
+.social-link
+	display: block
+	background: url('../img/social-icons.png') no-repeat
+	&-vk
+		flex: 0 0 23px
+		max-width: 23px
+		height: 13px
+		background-position: 0 50%
+	&-ig
+		flex: 0 0 20px
+		max-width: 20px
+		height: 20px
+		background-position: 50% 50%
+	&-fb
+		flex: 0 0 19px
+		max-width: 19px
+		height: 16px
+		background-position: 100% 50%
+
+.designer
+	margin-top: 46px
+	font: 0.75rem $sub-font
+	color: rgba($text-color-white, .4)
+	a
+		color: inherit
+		transition: $trs
+		&:hover
+			text-decoration: none
+			color: $accent-color
+			transition: $trs
+
+.copy
+	text-align: right
 
 
 
